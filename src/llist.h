@@ -13,3 +13,4 @@ typedef struct List
 
 List* newlist();
 int push(List* L, char* name, void* value);
+void* getvalue(List* L, char* name);

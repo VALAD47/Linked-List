@@ -6,5 +6,6 @@ int main(){
     push(myList, "First", (int*)69);
     push(myList, "Second", "(int*)69");
     push(myList, "Third", (int*)69);
-    printf("First object: %s %d\tLast object : %s %d\n", myList->first->name, myList->first->value, myList->last->name, myList->last->value);
+
+    printf("Value of \"Second\" in list: %s", getvalue(myList, "Second"));
 }

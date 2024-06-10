@@ -1,6 +1,7 @@
 #include "llist.h"
 #include <stdlib.h>
 #include <stdio.h>
+#include <string.h>
 
 //Creating and initialising new list
 List* newlist(){
@@ -10,6 +11,8 @@ List* newlist(){
 }
 
 //Pushing element in end of list
+//value can be any data type you want
+//
 //Returning 0 if success
 int push(List* L, char* name, void* value){
     ListNode* newNode = (ListNode*)malloc(sizeof(ListNode));
@@ -29,4 +32,38 @@ int push(List* L, char* name, void* value){
     }
     L->last = newNode;
     return 0;
+}
+
+//Getting value from linked list by name
+//Returning NULL if no such element in list
+void* getvalue(List* L, char* name){
+    ListNode* next = L->first;
+    while (next!=NULL){
+        if (strcmp(next->name, name) == 0){
+            return next->value;
+        }
+        next = next->nextNode;
+    }
+}
+
+//Deleting last element from list
+void pop(List* L){
+    ListNode* preLast = NULL;
+    ListNode* step = L->first;
+    while (preLast==NULL){
+        if(step->nextNode = L->last)
+            preLast = step->nextNode;
+    }
+    free(L->last);
+    L->last = preLast;
+}
+
+//Deleting whole list
+void deletelist(List* L){
+    ListNode* step = L->first;
+    while(step != NULL){
+        ListNode* now = step;
+        step = step->nextNode;
+        free(now);
+    }
 }
