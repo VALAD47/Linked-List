@@ -7,5 +7,7 @@ int main(){
     push(myList, "Second", "(int*)69");
     push(myList, "Third", (int*)69);
 
-    printf("Value of \"Second\" in list: %s", getvalue(myList, "Second"));
+    printf("Value of \"Second\" in list: %s\n", getvalue(myList, "Second"));
+
+    printf("Size of list: %d", getsize(myList));
 }

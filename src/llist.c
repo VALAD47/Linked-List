@@ -3,6 +3,10 @@
 #include <stdio.h>
 #include <string.h>
 
+#ifdef __cplusplus
+extern C {
+#endif
+
 //Creating and initialising new list
 List* newlist(){
     List* newList = (List*)malloc(sizeof(List));
@@ -34,8 +38,6 @@ int push(List* L, char* name, void* value){
     return 0;
 }
 
-//Getting value from linked list by name
-//Returning NULL if no such element in list
 void* getvalue(List* L, char* name){
     ListNode* next = L->first;
     while (next!=NULL){
@@ -46,7 +48,6 @@ void* getvalue(List* L, char* name){
     }
 }
 
-//Deleting last element from list
 void pop(List* L){
     ListNode* preLast = NULL;
     ListNode* step = L->first;
@@ -67,3 +68,19 @@ void deletelist(List* L){
         free(now);
     }
 }
+
+int getsize(List* L){
+    ListNode* step = L->first;
+    int size = 0;
+
+    while(step!=NULL){
+        size++;
+        step = step->nextNode;
+    }
+
+    return size;
+}
+
+#ifdef __cplusplus
+}
+#endif
